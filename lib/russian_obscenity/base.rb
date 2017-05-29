@@ -63,6 +63,7 @@ module RussianObscenity extend self
       file = DEFAULT_WHITELIST if file == :default
       @whitelisted_words << YAML.load_file(file)
     end
+    @whitelisted_words = @whitelisted_words.flatten.sort.uniq.compact
   end
 
   def make_regexp(dict_list)
