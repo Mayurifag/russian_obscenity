@@ -41,6 +41,14 @@ module RussianObscenity extend self
     reload_whitelist
   end
 
+  def add_whitelisted_words(list)
+    @whitelisted_words = (whitelisted_words + list).flatten.sort.uniq.compact
+  end
+
+  def remove_whitelisted_words(list)
+    @whitelisted_words = (whitelisted_words - list).flatten.sort.uniq.compact
+  end
+
   private
 
   def regexp
